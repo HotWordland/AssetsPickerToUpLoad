@@ -79,10 +79,10 @@
                                     [datas addObject:data];
                                     totalCount++;
                                     if (totalCount==self.assets.count) {
-                                        if (!uploadEngine) {
-                                            uploadEngine = [[WLUpLoadEngine alloc]init];
-                                        }
-                                        [uploadEngine executeUploadWithFileUploadUrl:SERVER_URL files:[NSArray arrayWithArray:datas] fileNames:imageNames KeyName:@"upload_file[]" upLoadProgress:^(float progress, int uploadIndex) {
+//                                        if (!uploadEngine) {
+//                                            uploadEngine = [[WLUpLoadEngine alloc]init];
+//                                        }
+                                        [WLUpLoadEngine executeUploadWithFileUploadUrl:SERVER_URL files:[NSArray arrayWithArray:datas] fileNames:imageNames KeyName:@"upload_file[]" upLoadProgress:^(float progress, int uploadIndex) {
                                             PhotosToUploadCell *cell = (PhotosToUploadCell *)[self.tableView cellForRowAtIndexPath:[NSIndexPath indexPathForRow:uploadIndex inSection:0]];
                                             [cell.progress setProgress:progress animated:NO];
                                         } uploadDone:^(NSString *message,int uploadIndex) {
@@ -128,10 +128,10 @@
                     }];
                      */
                     if (totalCount==self.assets.count) {
-                        if (!uploadEngine) {
-                            uploadEngine = [[WLUpLoadEngine alloc]init];
-                        }
-                        [uploadEngine executeUploadWithFileUploadUrl:SERVER_URL files:[NSArray arrayWithArray:datas] fileNames:videoNames KeyName:@"upload_file[]" upLoadProgress:^(float progress, int uploadIndex) {
+//                        if (!uploadEngine) {
+//                            uploadEngine = [[WLUpLoadEngine alloc]init];
+//                        }
+                        [WLUpLoadEngine executeUploadWithFileUploadUrl:SERVER_URL files:[NSArray arrayWithArray:datas] fileNames:videoNames KeyName:@"upload_file[]" upLoadProgress:^(float progress, int uploadIndex) {
                             PhotosToUploadCell *cell = (PhotosToUploadCell *)[self.tableView cellForRowAtIndexPath:[NSIndexPath indexPathForRow:uploadIndex inSection:0]];
                             [cell.progress setProgress:progress animated:NO];
                         } uploadDone:^(NSString *message,int uploadIndex) {

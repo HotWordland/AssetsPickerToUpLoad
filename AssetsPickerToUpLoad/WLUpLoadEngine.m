@@ -10,7 +10,7 @@
 #import "WLUploadOperation.h"
 #import <UIKit/UIKit.h>
 @implementation WLUpLoadEngine
--(void)executeUploadWithFileUploadUrl:(NSString *)uploadUrl files:(NSArray *)filesParamArray fileNames:(NSArray *)filesNames KeyName:(NSString *)keyName upLoadProgress:(void(^)(float progress,int uploadIndex))progressBlock uploadDone:(void(^)(NSString *message,int uploadIndex))uploadDoneBlock uploadType:(UploadTaskType)uploadType{
++(void)executeUploadWithFileUploadUrl:(NSString *)uploadUrl files:(NSArray *)filesParamArray fileNames:(NSArray *)filesNames KeyName:(NSString *)keyName upLoadProgress:(void(^)(float progress,int uploadIndex))progressBlock uploadDone:(void(^)(NSString *message,int uploadIndex))uploadDoneBlock uploadType:(UploadTaskType)uploadType{
     NSOperationQueue  *queue = [[NSOperationQueue alloc]init];
     if (uploadType == TaskToOneByOne) {
         [queue setMaxConcurrentOperationCount:1];
