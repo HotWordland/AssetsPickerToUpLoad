@@ -22,7 +22,9 @@
  ![](https://github.com/HotWordland/AssetsPickerToUpLoad/blob/master/演示说明/complicationVideoTask.gif)
 ##可以看见 所有任务是同时进行上传 不分先后
 
-##项目封装了上传方法  
+##项目封装了上传的Factory Method 注意因为演示所以没有对上传的视频进行压缩 正式情况下是要压缩的工程内提供了压缩视频的方法 有兴趣的朋友可以再fork封装下 完善壮大  
 ```
 -(void)executeUploadWithFileUploadUrl:(NSString *)uploadUrl files:(NSArray *)filesParamArray fileNames:(NSArray *)filesNames KeyName:(NSString *)keyName upLoadProgress:(void(^)(float progress,int uploadIndex))progressBlock uploadDone:(void(^)(NSString *message,int uploadIndex))uploadDoneBlock uploadType:(UploadTaskType)uploadType;
 ```
+
+##LonLonStudio - WL -(重庆途尔旅行ios开发者巫龙 ^_^)
