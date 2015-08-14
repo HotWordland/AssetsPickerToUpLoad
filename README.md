@@ -24,7 +24,7 @@
 
 ##项目封装了上传的Factory Method 注意因为演示所以没有对上传的视频进行压缩 正式情况下是要压缩视频再上传 工程内提供了压缩视频的方法和上传的逻辑是分开的 有兴趣的朋友可以再fork封装下 完善壮大 因为项目理由演示的gif文件(因为自己没有稳定的服务器) 容量有点大 但是工程不大
 ```
--(void)executeUploadWithFileUploadUrl:(NSString *)uploadUrl files:(NSArray *)filesParamArray fileNames:(NSArray *)filesNames KeyName:(NSString *)keyName upLoadProgress:(void(^)(float progress,int uploadIndex))progressBlock uploadDone:(void(^)(NSString *message,int uploadIndex))uploadDoneBlock uploadType:(UploadTaskType)uploadType;
++(void)executeUploadWithFileUploadUrl:(NSString *)uploadUrl files:(NSArray *)filesParamArray fileNames:(NSArray *)filesNames KeyName:(NSString *)keyName upLoadProgress:(void(^)(float progress,int uploadIndex))progressBlock uploadDone:(void(^)(NSString *message,int uploadIndex))uploadDoneBlock uploadType:(UploadTaskType)uploadType;
 ```
 
 ##LonLonStudio - WL -(重庆途尔旅行ios开发者巫龙 ^_^)
