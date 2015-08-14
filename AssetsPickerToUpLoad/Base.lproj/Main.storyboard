@@ -1,0 +1,126 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="7531" systemVersion="14F25a" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="hBA-QI-U5C">
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="7520"/>
+    </dependencies>
+    <scenes>
+        <!--View Controller-->
+        <scene sceneID="ufC-wZ-h7g">
+            <objects>
+                <viewController id="vXZ-lx-hvc" customClass="ViewController" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="jyV-Pf-zRb"/>
+                        <viewControllerLayoutGuide type="bottom" id="2fi-mo-0CV"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="kh9-bI-dsS">
+                        <rect key="frame" x="0.0" y="0.0" width="300" height="300"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        <subviews>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" translatesAutoresizingMaskIntoConstraints="NO" id="bUq-po-0iS">
+                                <rect key="frame" x="0.0" y="0.0" width="300" height="300"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <connections>
+                                    <outlet property="dataSource" destination="vXZ-lx-hvc" id="MyX-AD-5Ot"/>
+                                    <outlet property="delegate" destination="vXZ-lx-hvc" id="Oih-fW-Pla"/>
+                                </connections>
+                            </tableView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="bUq-po-0iS" firstAttribute="leading" secondItem="kh9-bI-dsS" secondAttribute="leading" id="2gq-0T-yhC"/>
+                            <constraint firstAttribute="trailing" secondItem="bUq-po-0iS" secondAttribute="trailing" id="hlh-di-KSh"/>
+                            <constraint firstItem="2fi-mo-0CV" firstAttribute="top" secondItem="bUq-po-0iS" secondAttribute="bottom" id="q1Z-K4-OmH"/>
+                            <constraint firstItem="bUq-po-0iS" firstAttribute="top" secondItem="kh9-bI-dsS" secondAttribute="top" id="uZy-JD-bw7"/>
+                        </constraints>
+                    </view>
+                    <navigationItem key="navigationItem" id="cKy-A0-dLq"/>
+                    <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+                    <size key="freeformSize" width="300" height="300"/>
+                    <connections>
+                        <outlet property="tableView" destination="bUq-po-0iS" id="Ul5-dT-uru"/>
+                        <segue destination="edd-Ok-1ME" kind="push" identifier="AssetsToUploadVCSegue" id="Jol-4d-YD1"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="x5A-6p-PRh" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="877" y="149"/>
+        </scene>
+        <!--Assets To UploadVC-->
+        <scene sceneID="EwY-2P-rfS">
+            <objects>
+                <viewController id="edd-Ok-1ME" customClass="AssetsToUploadVC" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="8h9-57-v0Y"/>
+                        <viewControllerLayoutGuide type="bottom" id="eS9-pX-pwj"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="A7L-2U-IPL">
+                        <rect key="frame" x="0.0" y="0.0" width="300" height="300"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" translatesAutoresizingMaskIntoConstraints="NO" id="dza-I9-AXx">
+                                <rect key="frame" x="0.0" y="0.0" width="300" height="256"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <connections>
+                                    <outlet property="dataSource" destination="edd-Ok-1ME" id="8ey-cQ-fhU"/>
+                                    <outlet property="delegate" destination="edd-Ok-1ME" id="9uW-eI-ZQE"/>
+                                </connections>
+                            </tableView>
+                            <toolbar opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="CtP-YJ-IDe">
+                                <rect key="frame" x="0.0" y="256" width="300" height="44"/>
+                                <items>
+                                    <barButtonItem title="单个上传" width="48" id="uEp-K7-9tr">
+                                        <connections>
+                                            <action selector="clickToUploadOnebyone:" destination="edd-Ok-1ME" id="dR4-Es-ZnO"/>
+                                        </connections>
+                                    </barButtonItem>
+                                    <barButtonItem style="plain" systemItem="flexibleSpace" id="B6k-Hw-BHH"/>
+                                    <barButtonItem title="并发上传" width="48" id="1PA-oS-nWc">
+                                        <connections>
+                                            <action selector="clickToUoloadAll:" destination="edd-Ok-1ME" id="hcV-ch-vzF"/>
+                                        </connections>
+                                    </barButtonItem>
+                                </items>
+                            </toolbar>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstAttribute="trailing" secondItem="CtP-YJ-IDe" secondAttribute="trailing" id="2nE-Ek-xaP"/>
+                            <constraint firstItem="dza-I9-AXx" firstAttribute="leading" secondItem="A7L-2U-IPL" secondAttribute="leading" id="4CH-Ts-2hc"/>
+                            <constraint firstItem="CtP-YJ-IDe" firstAttribute="top" secondItem="dza-I9-AXx" secondAttribute="bottom" id="80x-AY-2Cv"/>
+                            <constraint firstItem="eS9-pX-pwj" firstAttribute="top" secondItem="CtP-YJ-IDe" secondAttribute="bottom" id="9HI-HK-et1"/>
+                            <constraint firstItem="dza-I9-AXx" firstAttribute="top" secondItem="A7L-2U-IPL" secondAttribute="top" id="I1w-3a-rrR"/>
+                            <constraint firstItem="CtP-YJ-IDe" firstAttribute="leading" secondItem="A7L-2U-IPL" secondAttribute="leading" id="J9p-5G-6iJ"/>
+                            <constraint firstAttribute="trailing" secondItem="dza-I9-AXx" secondAttribute="trailing" id="ioP-rw-Ppb"/>
+                        </constraints>
+                    </view>
+                    <navigationItem key="navigationItem" id="KKs-xZ-jkX"/>
+                    <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+                    <size key="freeformSize" width="300" height="300"/>
+                    <connections>
+                        <outlet property="tableView" destination="dza-I9-AXx" id="KEg-nI-7eh"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="fEl-Jh-PBV" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1287" y="-61"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="Kod-6h-laA">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="hBA-QI-U5C" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="frY-Ss-8O0">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="vXZ-lx-hvc" kind="relationship" relationship="rootViewController" id="zKh-ik-u8P"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="qcM-6P-NJA" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="88" y="261"/>
+        </scene>
+    </scenes>
+</document>
