@@ -21,3 +21,8 @@
 #上传视频模拟并发
  ![](https://github.com/HotWordland/AssetsPickerToUpLoad/blob/master/演示说明/complicationVideoTask.gif)
 ##可以看见 所有任务是同时进行上传 不分先后
+
+##项目封装了上传方法  
+```
+-(void)executeUploadWithFileUploadUrl:(NSString *)uploadUrl files:(NSArray *)filesParamArray fileNames:(NSArray *)filesNames KeyName:(NSString *)keyName upLoadProgress:(void(^)(float progress,int uploadIndex))progressBlock uploadDone:(void(^)(NSString *message,int uploadIndex))uploadDoneBlock uploadType:(UploadTaskType)uploadType;
+```
