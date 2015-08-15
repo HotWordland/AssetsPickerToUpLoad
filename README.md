@@ -11,7 +11,7 @@
 
 #上传图片模拟并发
  ![](https://github.com/HotWordland/AssetsPickerToUpLoad/blob/master/演示说明/complicationTask.gif)
-##可以看见 所有任务是同时进行上传
+##可以根据alertView的显示看到顺序是乱的 所有任务是同时进行上传
 
 
 #上传视频模拟串行
