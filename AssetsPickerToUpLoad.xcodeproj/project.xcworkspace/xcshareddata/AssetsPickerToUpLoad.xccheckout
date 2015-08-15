@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>IDESourceControlProjectFavoriteDictionaryKey</key>
+	<false/>
+	<key>IDESourceControlProjectIdentifier</key>
+	<string>A1E7C11E-DE51-4D2C-BBC6-82D107012DBF</string>
+	<key>IDESourceControlProjectName</key>
+	<string>AssetsPickerToUpLoad</string>
+	<key>IDESourceControlProjectOriginsDictionary</key>
+	<dict>
+		<key>8CC2889C31EB6FBF3F5CFA73D81E17346F53B77A</key>
+		<string>https://github.com/HotWordland/AssetsPickerToUpLoad.git</string>
+	</dict>
+	<key>IDESourceControlProjectPath</key>
+	<string>AssetsPickerToUpLoad.xcodeproj</string>
+	<key>IDESourceControlProjectRelativeInstallPathDictionary</key>
+	<dict>
+		<key>8CC2889C31EB6FBF3F5CFA73D81E17346F53B77A</key>
+		<string>../..</string>
+	</dict>
+	<key>IDESourceControlProjectURL</key>
+	<string>https://github.com/HotWordland/AssetsPickerToUpLoad.git</string>
+	<key>IDESourceControlProjectVersion</key>
+	<integer>111</integer>
+	<key>IDESourceControlProjectWCCIdentifier</key>
+	<string>8CC2889C31EB6FBF3F5CFA73D81E17346F53B77A</string>
+	<key>IDESourceControlProjectWCConfigurations</key>
+	<array>
+		<dict>
+			<key>IDESourceControlRepositoryExtensionIdentifierKey</key>
+			<string>public.vcs.git</string>
+			<key>IDESourceControlWCCIdentifierKey</key>
+			<string>8CC2889C31EB6FBF3F5CFA73D81E17346F53B77A</string>
+			<key>IDESourceControlWCCName</key>
+			<string>AssetsPickerToUpLoad</string>
+		</dict>
+	</array>
+</dict>
+</plist>

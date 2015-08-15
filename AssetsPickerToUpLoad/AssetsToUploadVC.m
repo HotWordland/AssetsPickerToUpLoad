@@ -53,9 +53,6 @@
     [self executeOperationUsingOperationQueueWithUploadType:uploadType];
 }
 -(void)executeOperationUsingOperationQueueWithUploadType:(UploadTaskType)uploadType{
-//    NSOperationQueue *queue = [[NSOperationQueue alloc]init];
-//    [queue setMaxConcurrentOperationCount:1];
-    //[queue waitUntilAllOperationsAreFinished];
     switch (_fileTypeObj.intValue) {
         case Photo:
         {
@@ -79,9 +76,6 @@
                                     [datas addObject:data];
                                     totalCount++;
                                     if (totalCount==self.assets.count) {
-//                                        if (!uploadEngine) {
-//                                            uploadEngine = [[WLUpLoadEngine alloc]init];
-//                                        }
                                         [WLUpLoadEngine executeUploadWithFileUploadUrl:SERVER_URL files:[NSArray arrayWithArray:datas] fileNames:imageNames KeyName:@"upload_file[]" upLoadProgress:^(float progress, int uploadIndex) {
                                             PhotosToUploadCell *cell = (PhotosToUploadCell *)[self.tableView cellForRowAtIndexPath:[NSIndexPath indexPathForRow:uploadIndex inSection:0]];
                                             [cell.progress setProgress:progress animated:NO];
@@ -116,21 +110,7 @@
                     NSData *data = [NSData dataWithContentsOfURL:videoURL];
                     [datas addObject:data];
                     totalCount++;
-                    /*
-                    NSString *toFilePathString = [NSString stringWithFormat:@"/Documents/wlUploadEngine-ceshiVideoCompress%d.mp4",i];
-                    NSString *debugPth = [NSHomeDirectory() stringByAppendingString:toFilePathString];
-                    NSLog(debugPth);
-                    NSURL *toFilePath =   [NSURL fileURLWithPath:[NSHomeDirectory() stringByAppendingString:toFilePathString]];
-                    [self encodeVideoByUrl:videoURL ToUrl:toFilePath Quality:AVAssetExportPresetLowQuality Completion:^(BOOL isSuccess) {
-                        if (isSuccess) {
-                            NSLog(@"压缩成功");
-                        }else NSLog(@"压缩失败");
-                    }];
-                     */
                     if (totalCount==self.assets.count) {
-//                        if (!uploadEngine) {
-//                            uploadEngine = [[WLUpLoadEngine alloc]init];
-//                        }
                         [WLUpLoadEngine executeUploadWithFileUploadUrl:SERVER_URL files:[NSArray arrayWithArray:datas] fileNames:videoNames KeyName:@"upload_file[]" upLoadProgress:^(float progress, int uploadIndex) {
                             PhotosToUploadCell *cell = (PhotosToUploadCell *)[self.tableView cellForRowAtIndexPath:[NSIndexPath indexPathForRow:uploadIndex inSection:0]];
                             [cell.progress setProgress:progress animated:NO];
@@ -230,61 +210,6 @@
         NSLog(@"AVAsset doesn't support mp4 quality");
     }
 }
-- (void)connection:(NSURLConnection *)theConnection didReceiveResponse:(NSURLResponse *)response
-{
-    
-    NSInteger responseCode = [(NSHTTPURLResponse *)response statusCode];
-    NSLog(@"response length=%lld  statecode%ld", [response expectedContentLength],(long)responseCode);
-}
-
-
-// A delegate method called by the NSURLConnection as data arrives.  The
-// response data for a POST is only for useful for debugging purposes,
-// so we just drop it on the floor.
-- (void)connection:(NSURLConnection *)theConnection didReceiveData:(NSData *)data
-{
-    if (mData == nil) {
-        mData = [[NSMutableData alloc] initWithData:data];
-    } else {
-        [mData appendData:data];
-    }
-    NSLog(@"response connection");
-    
-}
-
-// A delegate method called by the NSURLConnection if the connection fails.
-// We shut down the connection and display the failure.  Production quality code
-// would either display or log the actual error.
-- (void)connection:(NSURLConnection *)theConnection didFailWithError:(NSError *)error
-{
-    
-    NSLog(@"response error%@", [error localizedFailureReason]);
-}
-
-// A delegate method called by the NSURLConnection when the connection has been
-// done successfully.  We shut down the connection with a nil status, which
-// causes the image to be displayed.
-- (void)connectionDidFinishLoading:(NSURLConnection *)theConnection
-{
-    NSString *responseString = [[NSString alloc] initWithData:mData encoding:NSUTF8StringEncoding];
-    NSLog(@"response body%@", responseString);
-    //    UIAlertView *alert = [[UIAlertView alloc]initWithTitle:@"提示" message:responseString delegate:nil cancelButtonTitle:@"好" otherButtonTitles:nil, nil];
-    //    [alert show];
-    //    [self.uoloadprogress setProgress:0.0];
-}
-- (void)connection:(NSURLConnection *)connection didSendBodyData:(NSInteger)bytesWritten totalBytesWritten:(NSInteger)totalBytesWritten totalBytesExpectedToWrite:(NSInteger)totalBytesExpectedToWrite
-{
-    float myProgress = (float)totalBytesWritten / (float)totalBytesExpectedToWrite;
-    
-    NSLog(@"Proggy: %f",myProgress);
-   // self.progressBlock(myProgress);
-    
-    //    self.uoloadprogress.progress = myProgress;
-}
-
-
-
-
 #pragma mark - Table view data source
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
 {

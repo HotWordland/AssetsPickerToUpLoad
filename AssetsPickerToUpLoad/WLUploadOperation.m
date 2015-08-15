@@ -118,6 +118,8 @@
     NSLog(@"response connection");
     NSError *error;
     NSDictionary *resultValue = [NSJSONSerialization JSONObjectWithData:mData options:NSJSONReadingMutableLeaves error:&error];
+    //sleep(1);//为了模拟"想要手动地执行一个 operation ，又想这个 operation 能够异步执行的话，你需要做一些额外的配置来让你的 operation 支持并发执行"的情况 防止网速太快看不到变化
+    //完成时 手动维护kvo(注意，有一个非常重要的点需要引起我们的注意，那就是即使一个 operation 是被 cancel 掉了，我们仍然需要手动触发 isFinished 的 KVO 通知。因为当一个 operation 依赖其他 operation 时，它会观察所有其他 operation 的 isFinished 的值的变化，只有当它依赖的所有 operation 的 isFinished 的值为 YES 时，这个 operation 才能够开始执行。因此，如果一个我们自定义的 operation 被取消了但却没有手动触发 isFinished 的 KVO 通知的话，那么所有依赖它的 operation 都不会执行。)
     [self willChangeValueForKey:@"isFinished"];
     _finished = YES;
     [self didChangeValueForKey:@"isFinished"];
@@ -125,8 +127,6 @@
     _executing = NO;
     [self didChangeValueForKey:@"isExecuting"];
     self.uploadDoneBlock([resultValue objectForKey:@"message"]);
-    //完成时 手动维护kvo(注意，有一个非常重要的点需要引起我们的注意，那就是即使一个 operation 是被 cancel 掉了，我们仍然需要手动触发 isFinished 的 KVO 通知。因为当一个 operation 依赖其他 operation 时，它会观察所有其他 operation 的 isFinished 的值的变化，只有当它依赖的所有 operation 的 isFinished 的值为 YES 时，这个 operation 才能够开始执行。因此，如果一个我们自定义的 operation 被取消了但却没有手动触发 isFinished 的 KVO 通知的话，那么所有依赖它的 operation 都不会执行。)
-    //sleep(1);//为了模拟"想要手动地执行一个 operation ，又想这个 operation 能够异步执行的话，你需要做一些额外的配置来让你的 operation 支持并发执行"的情况 防止网速太快看不到变化
    
 }
 
@@ -146,9 +146,6 @@
 {
     NSString *responseString = [[NSString alloc] initWithData:mData encoding:NSUTF8StringEncoding];
     NSLog(@"response body%@", responseString);
-//    UIAlertView *alert = [[UIAlertView alloc]initWithTitle:@"提示" message:responseString delegate:nil cancelButtonTitle:@"好" otherButtonTitles:nil, nil];
-//    [alert show];
-//    [self.uoloadprogress setProgress:0.0];
 }
 - (void)connection:(NSURLConnection *)connection didSendBodyData:(NSInteger)bytesWritten totalBytesWritten:(NSInteger)totalBytesWritten totalBytesExpectedToWrite:(NSInteger)totalBytesExpectedToWrite
 {
@@ -157,7 +154,6 @@
     NSLog(@"Proggy: %f",myProgress);
     self.progressBlock(myProgress);
     
-//    self.uoloadprogress.progress = myProgress;
 }
 
 @end
